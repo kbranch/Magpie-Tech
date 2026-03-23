@@ -1,0 +1,71 @@
+[
+  {
+    "id": "super-jump",
+    "title": "Super Jump",
+    "patch": "super-jump.ips",
+    "description": "Super jumps trick the game into thinking you're jumping off a ledge. The general idea is to clip into a wall, jump, press towards the wall, then press away from the wall while facing away from it.\n\nNote that super jumps can't be done on the overworld, or on corner wall tiles\n\nThe practice ROM will take you to D7, where you can practice Goomba Surf if you're brave.",
+    "sections": [
+      {
+        "id": "sword",
+        "title": "Using Sword",
+        "body": "- Face away from the wall and hold the sword out\n- Clip into the wall\n- Hold towards the wall and jump\n- At the peak of the jump, press away from the wall\n  \n![](/images/super-jump-held-sword.gif)"
+      },
+      {
+        "id": "other-weapons",
+        "title": "Using Bow or Magic Rod",
+        "body": "- Clip into the wall\n- Jump\n- At the peak of the jump, press towards the wall, then quickly press away from the wall and use Bow, Sword or Magic Rod\n\n![](/images/super-jump-other-weapons.gif)"
+      },
+      {
+        "id": "naked",
+        "title": "Using only Feather",
+        "body": "- Face away from the wall and move in line with where you would clip in\n- Jump and move in mid air until you clip into the wall\n- Jump\n- At the peak of the jump, press towards the wall, then quickly press away from it\n\n![](/images/super-jump-naked.gif)"
+      }
+    ]
+  },
+  {
+    "id": "pause-buffer",
+    "title": "Pause Buffer",
+    "description": "Buffering an input is when you physically press a button before the game is ready to act on it, causing the game to react on the first frame possible.\n\nIn LADX, pause buffering is when you buffer an input while the pause menu is closing. Because the pause menu itself can be buffered and the game will always advance a single frame in between pauses, pause buffering allows you to easily perform complex inputs frame perfectly.\n\n### Steps\n- Pause\n- Press and release start to unpause\n- Before the menu closing animation finishes, hold start\n\nCongratulations, the game will have advanced a single frame once it pauses again. You can combine any other inputs while you hold start to have them take effect on that one frame.\n\n![](/images/pause-buffer.gif)",
+    "sections": []
+  },
+  {
+    "id": "bomb-trigger",
+    "title": "Bomb Trigger",
+    "patch": "bomb-trigger.ips",
+    "description": "Bomb triggers abuse the game's bomb arrow mechanic by dropping two bombs within a few frames of each other. When the game can't find an arrow, it activates the first entity it finds instead. Practically, this can collect some items on the ground or activate some cutscenes like the D7 pillars breaking.\n\nThis can be done either by placing a bomb on either side of a scene transition, or by quickly dropping two bombs into a pit. Pause buffering makes this very easy to do.\n\nThe practice ROM will take you to the quadruplets' house and then D7, where you can try bomb triggering Papahl's Wife and D7's pillars. Try a super jump to get all four pillars very quickly!",
+    "sections": [
+      {
+        "id": "vertical",
+        "title": "Vertical Screen Transitions",
+        "body": "- Get very close to the edge of the screen. You can use the feather or a boots bonk to press yourself up against the edge without risking triggering the transition.\n- Pause, unpause, and while the menu is closing, hold the dpad direction that will start the screen transition as well as lay a bomb (e.g. hold down and A)\n- When the screen transition starts, release your held buttons and hold start to buffer a pause at the first frame possible\n- Once the menu opens again, unpause and hold the bomb button again while the menu closes (this step may not be necessary for some bomb triggers)\n\nPausing can be skipped with good timing, it just makes it very easy and reliable.\n\n![](/images/bomb-trigger-vertical-buffered.gif)"
+      },
+      {
+        "id": "horizontal",
+        "title": "Horizontal Screen Transitions",
+        "body": "Link must be facing either up or down during the screen transition for bomb triggers to work. Moving horizontally between screens is very similar, you just have to make sure you face the right way the whole time.\n- Get very close to the edge of the screen. You can use the feather or a boots bonk to press yourself up against the edge without risking triggering the transition.\n- **<u>Before transitioning, face link either up or down</u>**\n- Pause, unpause, and while the menu is closing, *hold the diagonal dpad direction that will start the screen transition and keep you facing up or down* as well as lay a bomb (e.g. **<u>hold down, left, and A</u>**)\n- When the screen transition starts, release your held buttons and hold start to buffer a pause at the first frame possible\n- Once the menu opens again, unpause and hold the bomb button again while the menu closes (this step may not be necessary for some bomb triggers)\n\nPausing can be skipped with good timing, it just makes it very easy and reliable.\n\n![](/images/bomb-trigger-horizontal-buffered.gif)"
+      },
+      {
+        "id": "pits",
+        "title": "Pits",
+        "body": "Pits are easy.\n- Get close enough to a pit that a bomb will drop in\n- Drop two bombs in real quick\n\n![](/images/bomb-trigger-pit.gif)"
+      },
+      {
+        "id": "troubleshooting",
+        "title": "Troubleshooting",
+        "body": "- If you fire an arrow, you have to go through an entrance or save and quit before bomb triggers will work again.\n- Because bomb triggers activate the first loaded entity, sometimes enemies need to be killed before the thing you want to trigger is in the right slot. Other times, you need to enter from the right side of the screen.\n- If your second bomb shows the explosion animation for a single frame, you did the inputs correctly. One of the above issues blocked it.\n\nHere you can see a zol blocking the trigger:\n![](/images/bomb-trigger-zol-blocked.gif)\n\nAnd here's the same one working after killing the zol:\n![](/images/bomb-trigger-kill-zol.gif)"
+      }
+    ]
+  },
+  {
+    "id": "jesus-jump",
+    "title": "Jesus Jump",
+    "description": "![](/images/digging.gif) ![](/images/under-construction.gif) ![](/images/digging.gif)",
+    "sections": []
+  },
+  {
+    "id": "sideways-block-push",
+    "title": "Sideways Block Push",
+    "description": "![](/images/digging.gif) ![](/images/under-construction.gif) ![](/images/digging.gif)",
+    "sections": []
+  }
+]
