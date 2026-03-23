@@ -86,6 +86,9 @@ onMounted(() => {
     .then(response => response.json())
     .then(data => {
       techs.value = data;
+      if (techs.value?.length) {
+        router.push(`/${techs.value[0].id}`)
+      }
     });
 });
 
@@ -125,7 +128,7 @@ onMounted(() => {
     </div>
 
     <div class="col">
-      <TechInfo :description="activeTech.description" :sections="activeTech.sections" :active-section="sectionId" :tech-id="activeTech.id" @link-copied="linkCopied" />
+      <TechInfo :description="activeTech?.description" :sections="activeTech?.sections" :active-section="sectionId" :tech-id="activeTech?.id" @link-copied="linkCopied" />
     </div>
   </div>
 
