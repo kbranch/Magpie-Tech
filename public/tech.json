@@ -77,7 +77,7 @@
       {
         "id": "normal",
         "title": "Normal Jesus Jumps",
-        "body": "- Jump towards water (or lava)\n- Just before touching the water, pause buffer until you see the first frame of the spash animation\n- While the pause menu closes, hold the feather button and the direction you want to jump\n- Repeat until you get where you want to go\n\n<video controls autoplay loop muted>\n  <source src=\"/images/jesus-jump-normal.mp4\" type=\"video/mp4\">\n\n![](/images/jesus-jump-normal.gif)\n \n</video>"
+        "body": "- Jump towards water (or lava)\n- Just before touching the water, pause buffer until you see the first frame of the splash animation\n- While the pause menu closes, hold the feather button and the direction you want to jump\n- Repeat until you get where you want to go\n\n<video controls autoplay loop muted>\n  <source src=\"/images/jesus-jump-normal.mp4\" type=\"video/mp4\">\n\n![](/images/jesus-jump-normal.gif)\n \n</video>"
       },
       {
         "id": "screen-transitions",
