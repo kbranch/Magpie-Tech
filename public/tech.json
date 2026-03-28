@@ -40,8 +40,8 @@
     "description": "The bonk that happens when Link hits a solid tile while dashing can be used to clear single tile pits.\n\n- Get close to a pit (not necessarily pixel perfect, but it helps)\n- Dash into a wall\n- Move Link towards the other side of the pit (not necessarily frame perfect, but it helps)\n\nBoth horizontal and vertical pits can be bonked over. Lava too, but with no room for error (it's even subpixel dependent)\n\n![](/images/boots-bonk.gif)\n\n![](/images/lava-bonk.gif)\nCredit to [Winter](https://www.twitch.tv/winterkid09), because I didn't want to deal with the subpixel nonsense",
     "sections": [
       {
-        "id": "new-section",
-        "title": "New Section",
+        "id": "other-resources",
+        "title": "Other Resources",
         "body": "[LuckwurstJoe's YouTube tutorial (German)](https://www.youtube.com/watch?v=Zeh92iwHQJQ&list=PLmhzJqueRzWOtNalMosbUE9HISIjXHi6a&index=10)"
       }
     ],
