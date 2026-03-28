@@ -10,13 +10,18 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/:techId',
+      path: '/:game',
+      name: 'homeWithGame',
+      component: HomeView,
+    },
+    {
+      path: '/:game/:techId',
       name: 'homeWithTech',
       component: HomeView,
       props: true,
     },
     {
-      path: '/:techId/:sectionId',
+      path: '/:game/:techId/:sectionId',
       name: 'homeWithSection',
       component: HomeView,
       props: true,

@@ -1,20 +1,31 @@
 <script setup>
 
 import 'md-editor-v3/lib/preview.css';
+import 'md-editor-v3/lib/style.css';
 import { MdPreview } from 'md-editor-v3';
-import { computed, watch } from 'vue';
+import { computed, defineAsyncComponent, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
+const MdEditor = defineAsyncComponent(() => import('md-editor-v3').then((module) => module.MdEditor));
+
 const router = useRouter();
-const props = defineProps(['description', 'sections', 'activeSection', 'techId']);
+const tech = defineModel();
+const props = defineProps(['activeSection', 'edit']);
 const emit = defineEmits(['linkCopied']);
 
-const markdownWrapper = computed(() => {
-  return props.description;
-});
+const toolbarExclude = [
+    'pageFullscreen',
+    'fullscreen',
+    'mermaid',
+    'katex',
+    'revoke',
+    'next',
+    'save',
+    'htmlPreview',
+];
 
 const activeIndex = computed(() => {
-  let index = props.sections?.indexOf(props.sections.find((x) => x.id === props.activeSection)) ?? 0;
+  let index = tech.value?.sections?.indexOf(tech.value.sections.find((x) => x.id === props.activeSection)) ?? 0;
   return Math.max(index, 0);
 });
 
@@ -24,12 +35,12 @@ async function copyLink(section, event) {
 }
 
 function sectionPath(section) {
-  return `/${props.techId}/${section.id}`;
+  return `/${tech.value.game}/${tech.value.id}/${section.id}`;
 }
 
 function defaultSection() {
-  if (props.sections?.length && !props.activeSection) {
-    router.push(sectionPath(props.sections[0]));
+  if (tech.value?.sections?.length && !props.activeSection) {
+    router.push(sectionPath(tech.value?.sections[0]));
   }
 }
 
@@ -38,16 +49,34 @@ function setListener(section, event) {
   collapsable.addEventListener('shown.bs.collapse', () => router.push(sectionPath(section)));
 }
 
-watch(() => [props.activeSection, props.sections], defaultSection);
+watch(() => [props.activeSection, tech.value], defaultSection);
 
 </script>
 
 <template>
 
-<MdPreview v-model="markdownWrapper" theme="dark" class="md-outer-editor" :no-mermaid="true" :no-katex="true" />
+
+<template v-if="tech">
+  <div v-if="edit" class="tech-form">
+    <button type="button" class="btn btn-secondary" @click="tech.sections.push({id: 'new-section', title: 'New Section', body: ''})">
+      Add Section
+    </button>
+  </div>
+
+  <MdPreview v-if="!edit" v-model="tech.description" theme="dark" class="md-outer-editor" :no-mermaid="true" :no-katex="true" />
+  <MdEditor v-else v-model="tech.description" theme="dark" language="en-US" :toolbars-exclude="toolbarExclude" class="md-outer-editor" :no-mermaid="true" :no-katex="true" />
+</template>
 
 <div class="accordion" id="sectionAccordion">
-  <div v-for="(section, i) in sections" :key="section.title" class="accordion-item">
+  <div v-for="(section, i) in tech?.sections" :key="section.title" class="accordion-item">
+    <div v-if="edit" class="tech-form">
+      <input v-model="section.id" type="text" class="form-control my-2">
+      <input v-model="section.title" type="text" class="form-control my-2">
+      <button type="button" class="btn btn-secondary" @click="tech.sections = tech.sections.filter(x => x.id != section.id)">
+        Delete Section
+      </button>
+    </div>
+
     <h2 class="accordion-header">
       <button class="accordion-button" :class="{'collapsed': i != activeIndex}" type="button" data-bs-toggle="collapse"
         :data-bs-target="`#collapse${i}`" :aria-expanded="i == activeIndex ? 'true' : 'false'"
@@ -56,9 +85,11 @@ watch(() => [props.activeSection, props.sections], defaultSection);
       </button>
       <img @click="copyLink(section, $event)" ref="linkElements" src="/images/link.svg" class="copy-link">
     </h2>
+
     <div :id="`collapse${i}`" class="accordion-collapse collapse" :class="{'show': i == activeIndex}" data-bs-parent="#sectionAccordion">
       <div class="accordion-body">
-        <MdPreview v-model="section.body" theme="dark" class="md-outer-editor" :no-mermaid="true" :no-katex="true" />
+        <MdPreview v-if="!edit" v-model="section.body" theme="dark" class="md-outer-editor" :no-mermaid="true" :no-katex="true" />
+        <MdEditor v-else v-model="section.body" theme="dark" language="en-US" :toolbars-exclude="toolbarExclude" class="md-outer-editor" :no-mermaid="true" :no-katex="true" />
       </div>
     </div>
   </div>
@@ -67,6 +98,15 @@ watch(() => [props.activeSection, props.sections], defaultSection);
 </template>
 
 <style scoped>
+
+.tech-form {
+  display: flex;
+}
+
+.form-control {
+  margin-left: 8px;
+  margin-right: 8px;
+}
 
 .accordion-header {
   position: relative;

@@ -1,18 +1,19 @@
 <script setup>
 import { RomPatcher } from '@/rom-patcher-js/RomPatcher.js';
 import { BinFile } from '@/rom-patcher-js/modules/BinFile.js';
-import { hashBytes } from '@/main.js';
-import { computed, onMounted, ref } from 'vue';
+import { hashBytes, sortByKey } from '@/main.js';
+import { computed, onMounted, ref, watch } from 'vue';
 import TechInfo from '@/components/TechInfo.vue';
 import { useRomStore } from '@/stores/romStore';
 import { Toast } from 'bootstrap';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const props = defineProps(['techId', 'sectionId']);
+const props = defineProps(['techId', 'sectionId', 'game']);
 
-const patchBase = 'patches/';
+const patchBase = '/patches/';
 const ladxHash = 'c95dd3d9cb798e86c28e3269554e458d434bf3277b96cadf5bc81cfacfb5ee60'
+const allowEdit = import.meta.env.VITE_ALLOW_EDIT === 'true';
 
 const romStore = useRomStore();
 const techs = ref(null);
@@ -80,15 +81,41 @@ function linkCopied(x, y) {
   toast.value.show();
 }
 
+function pushPath(newTechId) {
+  let targetGame = props.game ?? 'ladx';
+  let targetTechId = newTechId ?? props.techId;
+
+  if (techs.value?.length && !targetTechId) {
+    targetTechId = techs.value[0].id;
+  }
+
+  let path = `/${targetGame}`;
+
+  if (targetTechId) {
+    path += `/${targetTechId}`;
+  }
+
+  if (props.sectionId && !newTechId) {
+    path += `/${props.sectionId}`;
+  }
+
+  router.push(path);
+}
+
+watch(() => activeTech.value?.id, (newValue) => {
+  pushPath(newValue);
+});
+
 onMounted(() => {
+  pushPath();
+
   toast.value = new Toast(toastElement.value);
+
   fetch('/tech.json')
     .then(response => response.json())
     .then(data => {
-      techs.value = data;
-      if (techs.value?.length) {
-        router.push(`/${techs.value[0].id}`)
-      }
+      techs.value = sortByKey(data, x => x.title);
+      pushPath();
     });
 });
 
@@ -115,22 +142,36 @@ onMounted(() => {
         onclick="document.getElementById('romInput').click();" />
     </div>
     <div v-if="activeTech?.patch" class="col d-flex justify-content-end">
-      <button class="btn btn-secondary" @click="fetchPatchFileAndPatch()" :disabled="!romStore.romData" :title="romStore.romData ? '' : 'No vanilla LADX ROM loaded'">Download Practice ROM</button>
+      <button class="btn btn-secondary" @click="fetchPatchFileAndPatch()" :disabled="!romStore.romData" :title="romStore.romData ? '' : 'No vanilla LADX ROM loaded'">Download {{ activeTech.title }} Practice ROM</button>
     </div>
   </div>
 
   <div v-if="techs" class="row">
     <div class="col-3">
-      <p v-for="tech in techs" :key="tech.title" @click="router.push(`/${tech.id}`)" class="tech-title"
+      <p v-for="tech in techs?.filter(x => x.game == game)" :key="tech.title" @click="pushPath(tech.id)" class="tech-title"
         :class="{ 'active': activeTech === tech }">
         {{ tech.title }}
       </p>
+
+      <p class="pt-4">Have questions? Join us on <a href="https://discord.gg/QhAKagk84e">Discord</a>, we're happy to help!</p>
+      <p class="pt-2">We also two weekly races, one async and one sync 👀</p>
+      <p class="pt-4">Interested in making content like this for other games? Contact kbranch on Discord, the site is set up to handle that</p>
     </div>
 
     <div class="col">
-      <TechInfo :description="activeTech?.description" :sections="activeTech?.sections" :active-section="sectionId" :tech-id="activeTech?.id" @link-copied="linkCopied" />
+      <div v-if="activeTech && allowEdit" class="tech-form">
+        <input v-model="activeTech.id" type="text" class="form-control my-2">
+        <input v-model="activeTech.title" type="text" class="form-control my-2">
+        <input v-model="activeTech.patch" type="text" class="form-control my-2">
+        <button type="button" class="btn btn-secondary" @click="techs.push({id: 'new-tech', title: 'New Tech', game: 'ladx', sections: []})">
+          Add Tech
+        </button>
+      </div>
+      <TechInfo v-model="activeTech" :active-section="sectionId" :edit="allowEdit" @link-copied="linkCopied" />
     </div>
   </div>
+
+  <button v-if="allowEdit" type="button" class="btn btn-secondary mt-2" @click="console.log(techs)">Output JSON</button>
 
 </template>
 
@@ -160,6 +201,15 @@ onMounted(() => {
 </style>
 
 <style scoped>
+
+.tech-form {
+  display: flex;
+}
+
+.form-control {
+  margin-left: 8px;
+  margin-right: 8px;
+}
 
 .toast {
   position: absolute;

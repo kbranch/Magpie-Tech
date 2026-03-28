@@ -1,9 +1,159 @@
 [
   {
+    "game": "ladx",
+    "id": "bomb-trigger",
+    "title": "Bomb Trigger",
+    "patch": "bomb-trigger.ips",
+    "description": "Bomb triggers abuse the game's bomb arrow mechanic by dropping two bombs within a few frames of each other. When the game can't find an arrow, it activates the first entity it finds instead. Practically, this can collect some items on the ground or activate some cutscenes like the D7 pillars breaking.\n\nThis can be done either by placing a bomb on either side of a scene transition, or by quickly dropping two bombs into a pit. [Pause buffering](/ladx/pause-buffer) makes this very easy to do.\n\nThe end of the practice ROM will take you to the quadruplets' house and then D7, where you can try bomb triggering Papahl's Wife and D7's pillars. Try a [super jump](/ladx/super-jump) in D7 to get all four pillars very quickly!",
+    "sections": [
+      {
+        "id": "vertical",
+        "title": "Vertical Screen Transitions",
+        "body": "- Get very close to the edge of the screen. You can use the feather or a [boots bonk](/ladx/boots-bonk) to press yourself up against the edge without risking triggering the transition.\n- Pause, unpause, and while the menu is closing, hold the dpad direction that will start the screen transition as well as lay a bomb (e.g. hold down and A)\n- When the screen transition starts, release your held buttons and hold start to buffer a pause at the first frame possible\n- Once the menu opens again, unpause and hold the bomb button again while the menu closes (this step may not be necessary for some bomb triggers, but it doesn't hurt)\n\nThis can be done unbuffered (without pausing) with good timing, buffering just makes it very easy and reliable.\n\n![](/images/bomb-trigger-vertical-buffered.gif)"
+      },
+      {
+        "id": "horizontal",
+        "title": "Horizontal Screen Transitions",
+        "body": "Link must be facing either up or down during the screen transition for bomb triggers to work. Bomb triggering across horizontal screens is very similar to vertical screens, you just have to make sure you face the right way the whole time.\n- Get very close to the edge of the screen. You can use the feather or a [boots bonk](/ladx/boots-bonk) to press yourself up against the edge without risking triggering the transition.\n- **<u>Before transitioning, face link either up or down</u>**\n- Pause, unpause, and while the menu is closing, hold the **<u>diagonal</u>** dpad direction that will start the screen transition and keep you facing up or down as well as lay a bomb (e.g. **<u>hold down, left, and A</u>**)\n- When the screen transition starts, release your held buttons and hold start to buffer a pause at the first frame possible\n- Once the menu opens again, unpause and hold the bomb button again while the menu closes (this step may not be necessary for some bomb triggers, but it doesn't hurt)\n\nThis can be done unbuffered (without pausing) with good timing, buffering just makes it very easy and reliable.\n\n![](/images/bomb-trigger-horizontal-buffered.gif)"
+      },
+      {
+        "id": "pits",
+        "title": "Pits",
+        "body": "Pits are simple.\n- Get close enough to a pit that a bomb will drop in\n- Drop two bombs in real quick. [Pause buffering](/ladx/pause-buffer) can make this a little easier, but you stil have to time to pause so that it happens just as the first bomb falls\n\n![](/images/bomb-trigger-pit.gif)"
+      },
+      {
+        "id": "troubleshooting",
+        "title": "Troubleshooting",
+        "body": "- If you fire an arrow, you have to go through an entrance or save and quit before bomb triggers will work again.\n- Because bomb triggers activate the first loaded entity, sometimes enemies need to be killed before the thing you want to trigger is in the right slot. Other times, you need to enter from the right side of the screen.\n- If your second bomb shows the explosion animation for a single frame, you did the inputs correctly. One of the above issues blocked it.\n\nHere you can see a zol blocking the trigger:\n![](/images/bomb-trigger-zol-blocked.gif)\n\nAnd here's the same one working after killing the zol:\n![](/images/bomb-trigger-kill-zol.gif)"
+      },
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)\n[LuckwurstJoe's YouTube tutorial (German)](https://www.youtube.com/watch?v=WT9uIhdyUnM&list=PLmhzJqueRzWOtNalMosbUE9HISIjXHi6a&index=2)\n[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/ladx/tech/bomb-triggers)"
+      }
+    ]
+  },
+  {
+    "game": "ladx",
+    "id": "boots-bonk",
+    "title": "Boots Bonk",
+    "description": "The bonk that happens when Link hits a solid tile while dashing can be used to clear single tile pits.\n\n- Get close to a pit (not necessarily pixel perfect, but it helps)\n- Dash into a wall\n- Move Link towards the other side of the pit (not necessarily frame perfect, but it helps)\n\nBoth horizontal and vertical pits can be bonked over. Lava too, but with no room for error (it's even subpixel dependent)\n\n![](/images/boots-bonk.gif)\n\n![](/images/lava-bonk.gif)\nCredit to [Winter](https://www.twitch.tv/winterkid09), because I didn't want to deal with the subpixel nonsense",
+    "sections": [
+      {
+        "id": "new-section",
+        "title": "New Section",
+        "body": "[LuckwurstJoe's YouTube tutorial (German)](https://www.youtube.com/watch?v=Zeh92iwHQJQ&list=PLmhzJqueRzWOtNalMosbUE9HISIjXHi6a&index=10)"
+      }
+    ],
+    "patch": "boots-bonk-hookshot-spam.ips"
+  },
+  {
+    "id": "hookshot-clip",
+    "title": "Hookshot Clip",
+    "game": "ladx",
+    "sections": [
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)\n"
+      }
+    ],
+    "description": "When [clipped](/ladx/wall-clip) into a block, Link can slip the hookshot in between it and another block, latching on to a third.\n\n- Clip into the block\n- Use hookshot\n\nThat's it!\n\n![](/images/hookshot-clip.gif)"
+  },
+  {
+    "id": "hookshot-spam",
+    "title": "Hookshot Spam",
+    "game": "ladx",
+    "sections": [],
+    "description": "The hookshot can be used to walk over pits by constantly using it until you're over. When timed right, Link will slowly move in the direction he's facing. Despite \"spam\" in the name, it works best when timed frame perfectly.\n\n- Walk into a pit, facing the direction you want to go\n- Keep holding the direction you want to go\n- Use hookshot until you're across, timing the hookshot use to as close to the first frame it returns as possible\n\n![](/images/hookshot-spam.gif)",
+    "patch": "boots-bonk-hookshot-spam.ips"
+  },
+  {
+    "game": "ladx",
+    "id": "jesus-jump",
+    "title": "Jesus Jump",
+    "description": "Link can use the feather after [pause buffering](/ladx/pause-buffer) right before falling into water or lava to perform a jump. These jumps can be chained together indefinitely, even across screen transitions (except upward transitions).",
+    "sections": [
+      {
+        "id": "normal",
+        "title": "Normal Jesus Jumps",
+        "body": "- Jump towards water (or lava)\n- Just before touching the water, pause buffer until you see the first frame of the spash animation\n- While the pause menu closes, hold the feather button and the direction you want to jump\n- Repeat until you get where you want to go\n\n![](/images/jesus-jump-normal.gif)"
+      },
+      {
+        "id": "screen-transitions",
+        "title": "Screen Transitions",
+        "body": "Link can jesus jump across left, down and right screen transitions, but not upward transitions.\n\n- Jesus jump normally until pressed up against the edge of the screen\n- The next time Link touches the water, buffer the direction that will start the screen transition rather than feather.\n- Link will get stuck in a drowning loop on the other side - hold A, B, Start and Select until the save and quit menu opens, then close it and buffer a jump while it closes\n\n![](/images/jesus-jump-transition.gif)"
+      },
+      {
+        "id": "jesus-buffer",
+        "title": "Jesus Buffering",
+        "body": "When Link touches the water, continuing to pause buffer will slowly move Link downwards indefinitely, similar to [pit buffering](/ladx/pit-buffer). This can be done with a boots bonk or anything else that would result in a splash animation.\n\n![](/images/jesus-buffer.gif)"
+      },
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/la/tech/jesus-jump-ladx-only)\n[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)"
+      }
+    ],
+    "patch": "jesus-jump.ips"
+  },
+  {
+    "game": "ladx",
+    "id": "pause-buffer",
+    "title": "Pause Buffer",
+    "description": "Buffering an input is when you physically press a button before the game is ready to act on it, causing the game to react on the first frame possible.\n\nIn LADX, pause buffering is when you buffer an input while the pause menu is closing. Because the pause menu itself can be buffered and the game will always advance a single frame in between pauses, pause buffering allows you to easily perform complex inputs frame perfectly.\n\nOther menus can also be buffered, like the map and the save and quit menu. The map guarantees four frames between menus. Some situations in other tech may require buffering a specific menu type.\n\n### Steps\n- Pause\n- Press and hold start to unpause\n- Keep holding start until the game pauses again\n\nCongratulations, the game will have advanced a single frame. You can combine any other inputs while you hold start to have them take effect on that one frame.\n\n![](/images/pause-buffer.gif)",
+    "sections": [
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/la/tech/buffering)"
+      }
+    ]
+  },
+  {
+    "id": "pit-buffer",
+    "title": "Pit Buffer",
+    "game": "ladx",
+    "sections": [
+      {
+        "id": "horizontal-pits",
+        "title": "Crossing Horizontal Pits",
+        "body": "Horizontal pits with solid tiles below them can be crossed with either Feather or [boots bonks](/ladx/boots-bonk).\n\n- Jump/bonk sideways into the pit\n- Buffer until Link is clipped into the solid tile below\n- Repeat until Link is where you want him to be\n\n![](/images/pit-buffer-horizontal-feather.gif)\n![](/images/pit-buffer-horizontal-boots.gif)"
+      },
+      {
+        "id": "with-toadstool",
+        "title": "With Toadstool",
+        "body": "Toadstool can make pit buffers much faster. If you've already turned your toadstool in to the witch, you can go back to its vanilla location in the woods and pick another.\n\n- Jump/bonk into a pit\n- Use toadstool before falling\n- On the last page of text, buffer the save and quit menu\n\nLink will be moved below the pit right away.\n\n![](/images/pit-buffer-toadstool.gif)"
+      },
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/la/tech/clipping#pit-clipping) (Pit Clipping)\n[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)"
+      }
+    ],
+    "description": "Pit buffering (AKA villa buffering) is when you [pause buffer](/ladx/pause-buffer) while Link falls into a pit. This avoids the actual fall and moves Link downwards a little bit.\n\nPit buffers let you cross pits from north to south, or clip Link into solid tiles that are south of a pit, which can allow crossing horizontal pits.\n\nToadstool makes the process much faster.\n\n### Steps\n- Walk into a pit\n- Before Link actually falls, begin pause buffering\n- When Link's falling sound plays, he will instead move downwards\n- Repeat until Link is where you want him to be\n\n![](/images/pit-buffer-basic.gif)",
+    "patch": "pit-buffer.ips"
+  },
+  {
+    "game": "ladx",
+    "id": "sideways-block-push",
+    "title": "Sideways Block Push",
+    "description": "Link can push blocks sideways by [clipping](/ladx/wall-clip) into one and pushing at the right spot on its edge. That's it - clip into the block, center link on the edge of the block that you want to push from, and walk into the block. This can also be done while swimming.\n\n![](/images/sideways-block-push.gif)",
+    "sections": [
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/la/tech/sideways-block-pushing)\n[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)"
+      }
+    ],
+    "patch": "sideways-block-push.ips"
+  },
+  {
+    "game": "ladx",
     "id": "super-jump",
     "title": "Super Jump",
     "patch": "super-jump.ips",
-    "description": "Super jumps trick the game into thinking you're jumping off a ledge. The general idea is to clip into a wall, jump, press towards the wall, then press away from the wall while facing away from it.\n\nNote that super jumps can't be done on the overworld, or on corner wall tiles\n\nThe practice ROM will take you to D7, where you can practice Goomba Surf if you're brave.",
+    "description": "Super jumps trick the game into thinking you're jumping off a ledge. The general idea is to [clip into a wall](/ladx/wall-clip), jump, press towards the wall, then press away from the wall while facing away from it.\n\nNote that super jumps can't be done on the overworld, or on corner wall tiles\n\nSuper jumping in some specific places may require you to delay the final input, shortening the distance of your jump.\n\nThe end of the practice ROM will take you to:\n - D3, where you can practice Shaq Jumps\n - D7, where you can practice Goomba Surf if you're brave.",
     "sections": [
       {
         "id": "sword",
@@ -17,55 +167,37 @@
       },
       {
         "id": "naked",
-        "title": "Using only Feather",
-        "body": "- Face away from the wall and move in line with where you would clip in\n- Jump and move in mid air until you clip into the wall\n- Jump\n- At the peak of the jump, press towards the wall, then quickly press away from it\n\n![](/images/super-jump-naked.gif)"
+        "title": "Using only Feather (naked)",
+        "body": "- Face away from the wall and move in line with where you would clip in\n- Jump and move in mid air until you clip into the wall\n- Jump\n- At the peak of the jump, press towards the wall, then quickly press away from it\n \n![](/images/super-jump-naked.gif)"
+      },
+      {
+        "id": "boots-superhop",
+        "title": "Boots Superhop",
+        "body": "A boots superhop is basically a super jump, but done by boots dashing backwards in specific rooms, usually with pegs in them. They require either magic rod or bow.\n\n- *In a room with pegs*, start dashing at a wall that could be super jumped from\n- While dashing and before impacting the wall, pause and [buffer](/ladx/pause-buffer) the direction away from the wall and either bow or magic rod\n- Link will be dashing backwards, and will do a super jump when he hits the wall\n\n![](/images/boots-superhop.gif)"
+      },
+      {
+        "id": "shaq-jump",
+        "title": "Shaq Jump",
+        "body": "Shaq jumps are super jumps, but they can be done without [clipping](/ladx/wall-clip/) into the wall. They only work on specific corners - use Magpie's logic viewer to see where they're expected.\n\n![](/images/shaq-jump.gif)\nCredit: [Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)"
+      },
+      {
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)\n[LuckwurstJoe's YouTube tutorial (Super Jump) (German)](https://www.youtube.com/watch?v=igEksU42Ex4&list=PLmhzJqueRzWOtNalMosbUE9HISIjXHi6a&index=3)\n[LuckwurstJoe's YouTube tutorial (Shaq Jump) (German)](https://www.youtube.com/watch?v=0v3v9v1dj5o&list=PLmhzJqueRzWOtNalMosbUE9HISIjXHi6a&index=1)\n[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/la/tech/super-jump)"
       }
     ]
   },
   {
-    "id": "pause-buffer",
-    "title": "Pause Buffer",
-    "description": "Buffering an input is when you physically press a button before the game is ready to act on it, causing the game to react on the first frame possible.\n\nIn LADX, pause buffering is when you buffer an input while the pause menu is closing. Because the pause menu itself can be buffered and the game will always advance a single frame in between pauses, pause buffering allows you to easily perform complex inputs frame perfectly.\n\n### Steps\n- Pause\n- Press and release start to unpause\n- Before the menu closing animation finishes, hold start\n\nCongratulations, the game will have advanced a single frame once it pauses again. You can combine any other inputs while you hold start to have them take effect on that one frame.\n\n![](/images/pause-buffer.gif)",
-    "sections": []
-  },
-  {
-    "id": "bomb-trigger",
-    "title": "Bomb Trigger",
-    "patch": "bomb-trigger.ips",
-    "description": "Bomb triggers abuse the game's bomb arrow mechanic by dropping two bombs within a few frames of each other. When the game can't find an arrow, it activates the first entity it finds instead. Practically, this can collect some items on the ground or activate some cutscenes like the D7 pillars breaking.\n\nThis can be done either by placing a bomb on either side of a scene transition, or by quickly dropping two bombs into a pit. Pause buffering makes this very easy to do.\n\nThe practice ROM will take you to the quadruplets' house and then D7, where you can try bomb triggering Papahl's Wife and D7's pillars. Try a super jump to get all four pillars very quickly!",
+    "id": "wall-clip",
+    "title": "Wall Clip",
+    "game": "ladx",
     "sections": [
       {
-        "id": "vertical",
-        "title": "Vertical Screen Transitions",
-        "body": "- Get very close to the edge of the screen. You can use the feather or a boots bonk to press yourself up against the edge without risking triggering the transition.\n- Pause, unpause, and while the menu is closing, hold the dpad direction that will start the screen transition as well as lay a bomb (e.g. hold down and A)\n- When the screen transition starts, release your held buttons and hold start to buffer a pause at the first frame possible\n- Once the menu opens again, unpause and hold the bomb button again while the menu closes (this step may not be necessary for some bomb triggers)\n\nPausing can be skipped with good timing, it just makes it very easy and reliable.\n\n![](/images/bomb-trigger-vertical-buffered.gif)"
-      },
-      {
-        "id": "horizontal",
-        "title": "Horizontal Screen Transitions",
-        "body": "Link must be facing either up or down during the screen transition for bomb triggers to work. Moving horizontally between screens is very similar, you just have to make sure you face the right way the whole time.\n- Get very close to the edge of the screen. You can use the feather or a boots bonk to press yourself up against the edge without risking triggering the transition.\n- **<u>Before transitioning, face link either up or down</u>**\n- Pause, unpause, and while the menu is closing, *hold the diagonal dpad direction that will start the screen transition and keep you facing up or down* as well as lay a bomb (e.g. **<u>hold down, left, and A</u>**)\n- When the screen transition starts, release your held buttons and hold start to buffer a pause at the first frame possible\n- Once the menu opens again, unpause and hold the bomb button again while the menu closes (this step may not be necessary for some bomb triggers)\n\nPausing can be skipped with good timing, it just makes it very easy and reliable.\n\n![](/images/bomb-trigger-horizontal-buffered.gif)"
-      },
-      {
-        "id": "pits",
-        "title": "Pits",
-        "body": "Pits are easy.\n- Get close enough to a pit that a bomb will drop in\n- Drop two bombs in real quick\n\n![](/images/bomb-trigger-pit.gif)"
-      },
-      {
-        "id": "troubleshooting",
-        "title": "Troubleshooting",
-        "body": "- If you fire an arrow, you have to go through an entrance or save and quit before bomb triggers will work again.\n- Because bomb triggers activate the first loaded entity, sometimes enemies need to be killed before the thing you want to trigger is in the right slot. Other times, you need to enter from the right side of the screen.\n- If your second bomb shows the explosion animation for a single frame, you did the inputs correctly. One of the above issues blocked it.\n\nHere you can see a zol blocking the trigger:\n![](/images/bomb-trigger-zol-blocked.gif)\n\nAnd here's the same one working after killing the zol:\n![](/images/bomb-trigger-kill-zol.gif)"
+        "id": "other-resources",
+        "title": "Other Resources",
+        "body": "[ZeldaSpeedRuns](https://www.zeldaspeedruns.com/la/tech/clipping)\n[Speedrun Guide](https://docs.google.com/document/d/1HHDxA2rXHdLY2HtNzSebZlOrTdoBrM73ABP7tbMMJ6U/edit?tab=t.0)"
       }
-    ]
-  },
-  {
-    "id": "jesus-jump",
-    "title": "Jesus Jump",
-    "description": "![](/images/digging.gif) ![](/images/under-construction.gif) ![](/images/digging.gif)",
-    "sections": []
-  },
-  {
-    "id": "sideways-block-push",
-    "title": "Sideways Block Push",
-    "description": "![](/images/digging.gif) ![](/images/under-construction.gif) ![](/images/digging.gif)",
-    "sections": []
+    ],
+    "description": "Wall clipping is when Link partially overlaps a solid tile. This is an intended mechanic, and the game will even nudge you into a clip if you're close but not quite lined up right. Link can be clipped into a wall by anywhere from one to three pixels, which can affect how other tech behaves.\n\nWall clipping on its own can let you bypass some enemies that are meant to block your way, and is necessary for some other tricks like [super jumping](/ladx/super-jump).\n\n![](/images/56-WallclipsD2.gif)\nCredit: LuckwurstJoe"
   }
 ]
