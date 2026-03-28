@@ -95,7 +95,7 @@ function pushPath(newTechId) {
     path += `/${targetTechId}`;
   }
 
-  if (props.sectionId && !newTechId) {
+  if (props.sectionId && (!newTechId || newTechId === props.techId)) {
     path += `/${props.sectionId}`;
   }
 
